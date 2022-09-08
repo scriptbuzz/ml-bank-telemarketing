@@ -13,7 +13,7 @@ METHODOLOGY: The provided dataset is imbalanced. I will be using various under/o
 
 RESULTS: Oversampling the minority class provided the highest F1 Score for both classes in target y. 
 
-REFERENCES: There's nothing original in this notebook that I can claim as my own. All content is learned and extracted from the notebooks in the references section at the end of this notebook. Thanks to all the authors for their valuable educational contributions. 
+REFERENCES: Content of this guide is based on authors listed in the references section at the end of this notebook. Thanks to all the authors for their valuable educational contributions. 
 
 
 
