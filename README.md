@@ -3,7 +3,7 @@
 
 NAME: Michael H Bitar
 
-DATE: Sep 5, 2022 / r0.2
+DATE: Sep 5, 2022 / r0.3 
 
 EMAIL: seeds.swipes.0t@icloud.com
 
@@ -14,7 +14,6 @@ METHODOLOGY: The provided dataset is imbalanced. I will be using various under/o
 RESULTS: Oversampling the minority class provided the highest F1 Score for both classes in target y. 
 
 REFERENCES: Content of this guide is based on authors listed in the references section at the end of this notebook. Thanks to all the authors for their valuable educational contributions. 
-
 
 
 ```python
@@ -58,7 +57,6 @@ from tensorflow import keras
 from tensorflow_addons import losses
 
 ```
-
 
 ```python
 # load dataset over the web
@@ -110,26 +108,16 @@ plt.suptitle('Scatter Matrix of Age, Balance, Duration and Campaign')
 plt.show()
 ```
 
-
-    
 ![png](output_4_0.png)
     
-
-
-
 ```python
 # show any duplicates rows in dataframe
 df.duplicated().sum()
 ```
 
-
-
-
     0
-
-
-
-
+    
+    
 ```python
 # show columns and their  uique values 
 def print_unique_col_values(df):
@@ -138,7 +126,6 @@ def print_unique_col_values(df):
                 print(f'{column}: {df[column].unique()}') 
 
 ```
-
 
 ```python
 print_unique_col_values(df)
@@ -164,12 +151,7 @@ print_unique_col_values(df)
 df['y'].unique()
 ```
 
-
-
-
     array(['no', 'yes'], dtype=object)
-
-
 
 
 ```python
@@ -179,14 +161,9 @@ df['y'].unique()
 df.y.value_counts()
 ```
 
-
-
-
     no     39922
     yes     5289
     Name: y, dtype: int64
-
-
 
 
 ```python
@@ -194,9 +171,6 @@ df.y.value_counts()
 df = pd.get_dummies(data=df, columns=['job','education','marital','month','poutcome','contact'])
 df.columns
 ```
-
-
-
 
     Index(['age', 'default', 'balance', 'housing', 'loan', 'day', 'duration',
            'campaign', 'pdays', 'previous', 'y', 'job_admin.', 'job_blue-collar',
@@ -211,8 +185,6 @@ df.columns
            'poutcome_unknown', 'contact_cellular', 'contact_telephone',
            'contact_unknown'],
           dtype='object')
-
-
 
 
 ```python
@@ -287,13 +259,9 @@ df['default'] = df['default'].map({'yes': 1, 'no': 0})
 df['y'] = df['y'].map({'yes': 1, 'no': 0})
 ```
 
-
 ```python
 df.sample(20)
 ```
-
-
-
 
 <div>
 
@@ -2338,23 +2306,6 @@ y_train.value_counts(), y.value_counts()
 X_train[:10]
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2935,19 +2886,7 @@ X.head(10)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4173,23 +4112,9 @@ df['y'] = y_train
 df.head()
 ```
 
-
-
-
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+   
+    
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4803,8 +4728,6 @@ y_pred2 = ANN(X_train, y_train, X_test, y_test, 'binary_crossentropy', -1)
     weighted avg       0.91      0.79      0.83      9043
     
 
-
-
 ```python
 # train the third model
 
@@ -4943,7 +4866,6 @@ y_pred3 = ANN(X_train, y_train, X_test, y_test, 'binary_crossentropy', -1)
     
 
 
-
 ```python
 # combine the three training results
 
@@ -4969,7 +4891,6 @@ print(cl_rep)
        macro avg       0.67      0.86      0.70      9043
     weighted avg       0.91      0.80      0.83      9043
     
-
 
 
 ```python
